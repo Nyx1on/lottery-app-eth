@@ -1,8 +1,9 @@
 import web3 from './web3/web3';
+import lottery from './lottery';
+import { useEffect } from 'react';
 
 function App() {
-  web3.eth.getAccounts()
-    .then(console.log)
+  
     
   return (
     <div className="App">hi
