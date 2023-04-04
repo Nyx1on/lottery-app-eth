@@ -4,12 +4,15 @@ import lottery from "./lottery";
  
 function App() {
   const [manager, setManager] = useState("");
+  const [players, setPlayers] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       const manager = await lottery.methods.manager().call();
+      const players = await lottery.methods.players().call();
 
       setManager(manager);
+      setPlayers(players);
     }
     fetchData();
   }, []);
