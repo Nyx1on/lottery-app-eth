@@ -1,7 +1,7 @@
 import web3 from "./web3/web3";
 
 const address =
-  '0xFb1c78f847F7BDd6c66222843B921FDf9974078A0xFb1c78f847F7BDd6c66222843B921FDf9974078A';
+  '0xE76fB53e45601e4FbE99e4873D325d8B338A9AbD';
 
 const abi = [
   {
@@ -57,6 +57,6 @@ const abi = [
   },
 ];
 
-const lottery = new web3.eth.Contract(abi, address);
+const contract = new web3.eth.Contract(abi, address)
 
-export default lottery;
+export default contract;
