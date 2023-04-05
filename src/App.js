@@ -24,17 +24,29 @@ function App() {
 
   async function handleSubmit(event) {
     event.preventDefault();
- 
+
     const accounts = await web3.eth.getAccounts();
- 
+
     setMessage("Waiting on transaction success...");
- 
+
     await lottery.methods.enter().send({
       from: accounts[0],
       value: web3.utils.toWei(value, "ether"),
     });
- 
+
     setMessage("You have been entered!");
+  }; 
+  
+  async function handleClick() {
+    const accounts = await web3.eth.getAccounts();
+
+    setMessage("Waiting on transaction success...");
+
+    await lottery.methods.pickWinner().send({
+      from: accounts[0],
+    });
+
+    setMessage("A winner has been picked!");
   }
 
   return (
@@ -57,6 +69,14 @@ function App() {
           <button>Enter</button>
         </div>
       </form>
+      <hr />
+
+      <h4>Ready to pick a winner?</h4>
+      <button onClick={handleClick}>Pick a winner!</button>
+
+      <hr />
+
+      <h1>{message}</h1>
     </div>
   );
 }
