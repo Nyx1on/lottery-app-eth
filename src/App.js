@@ -53,9 +53,11 @@ function App() {
     <div>
       <h2>Lottery Contract</h2>
       <p>
-        This contract is managed by {manager}. There are currently{" "}
+        This contract is managed by {manager}.
+        <p>There are currently{" "}
         {players.length} people entered, competing to win{" "}
         {web3.utils.fromWei(balance, "ether")} ether!
+        </p> 
       </p>
       <hr></hr>
       <form onSubmit={handleSubmit}>
@@ -73,9 +75,7 @@ function App() {
 
       <h4>Ready to pick a winner?</h4>
       <button onClick={handleClick}>Pick a winner!</button>
-
       <hr />
-
       <h1>{message}</h1>
     </div>
   );
